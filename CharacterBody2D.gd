@@ -68,19 +68,24 @@ func handle_input():
 		direction = 1.0
 		sprite.flip_h = false
 
-	if is_on_floor():
-		can_double_jump = true
-		if Input.is_action_just_pressed("input_jump"):
-			start_jump()
-		elif direction != 0:
-			run_state(direction)
+	if abs(current_time - Counter.A_Basic_Timer) <= 1500:
+		if is_on_floor():
+			can_double_jump = true
+			if Input.is_action_just_pressed("input_jump"):
+				start_jump()
+				camera.start_shake(0.1,2)
+			elif direction != 0:
+				run_state(direction)
+			else:
+				idle_state()
 		else:
-			idle_state()
-	else:
-		if Input.is_action_just_pressed("input_jump") and can_double_jump:
-			start_double_jump()
-		else:
-			jump_state()
+			if Input.is_action_just_pressed("input_jump") and can_double_jump:
+				start_double_jump()
+				camera.start_shake(0.2,4)
+			else:
+				jump_state()
+	else :
+		return
 
 	# 处理冲刺
 	if Input.is_action_just_pressed("input_dash"):
