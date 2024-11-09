@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba76qkhjtwmb0"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1mg1k"]
+[ext_resource type="Texture2D" uid="uid://cdftxm3lckhnm" path="res://Art/zombie.png" id="2_hsnbs"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_n43af"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep426"]
+size = Vector2(128, 128)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_1mg1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+texture = ExtResource("2_hsnbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_ep426")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_n43af")

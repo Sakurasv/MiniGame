@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdo5f61l702yx"]
+[gd_scene load_steps=12 format=3 uid="uid://cdo5f61l702yx"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4dktf"]
+[ext_resource type="PackedScene" uid="uid://ba76qkhjtwmb0" path="res://Prefab/character_body_2d.tscn" id="1_mwm5m"]
 [ext_resource type="Texture2D" uid="uid://dkx0b6sbbw1u4" path="res://icon.svg" id="1_yuv6h"]
-[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_tvw66"]
 [ext_resource type="AudioStream" uid="uid://bw6u6xjuyau4c" path="res://addin/beat/lumine.mp3" id="4_ptrg1"]
 [ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="5_32hmi"]
 [ext_resource type="Texture2D" uid="uid://b74ysu513d4cf" path="res://Art/life_bar_bg.png" id="6_siote"]
@@ -12,27 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://c8gs41n2ctmac" path="res://Prefab/peashooter.tscn" id="10_sbfop"]
 [ext_resource type="PackedScene" uid="uid://bj7nn5lefsb1e" path="res://Prefab/bullet.tscn" id="11_rhj08"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep426"]
-size = Vector2(128, 128)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tivfa"]
 size = Vector2(955, 72)
 
 [node name="Main" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_4dktf")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(64, 64)
-texture = ExtResource("1_yuv6h")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(64, 64)
-shape = SubResource("RectangleShape2D_ep426")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-script = ExtResource("3_tvw66")
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_mwm5m")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -57,7 +41,7 @@ texture = ExtResource("1_yuv6h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -71,7 +55,6 @@ texture_progress = ExtResource("7_m5ejq")
 tint_under = Color(0.0705882, 1, 0.721569, 1)
 tint_progress = Color(1, 0.37143, 0.509107, 1)
 script = ExtResource("5_32hmi")
-player = NodePath("../../CharacterBody2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(575, 322)

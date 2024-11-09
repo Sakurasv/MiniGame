@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c366fny8jjmex"]
+
+[ext_resource type="Texture2D" uid="uid://dy2resw0fgdu1" path="res://Art/草坪.png" id="1_lwe7f"]
+[ext_resource type="Texture2D" uid="uid://dhies4t0quyci" path="res://Art/土地.png" id="2_wxnse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xe7bi"]
+size = Vector2(362.125, 93.75)
+
+[node name="Groud" type="StaticBody2D"]
+z_index = 3
+
+[node name="草地" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(183.591, 353.75)
+scale = Vector2(1.28788, 1.28788)
+texture = ExtResource("1_lwe7f")
+
+[node name="土地" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(181.236, 387.75)
+scale = Vector2(1.29245, 1.29245)
+texture = ExtResource("2_wxnse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(183.063, 405.125)
+shape = SubResource("RectangleShape2D_xe7bi")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://df2rwc5d338bd"]
+
+[ext_resource type="PackedScene" uid="uid://ba76qkhjtwmb0" path="res://Prefab/character_body_2d.tscn" id="1_aw2hk"]
+[ext_resource type="PackedScene" uid="uid://c366fny8jjmex" path="res://Prefab/groud.tscn" id="2_1kli6"]
+[ext_resource type="Script" path="res://Scripts/Portal.gd" id="4_606iy"]
+[ext_resource type="Texture2D" uid="uid://cvxpxm74on603" path="res://Art/life_bar.png" id="5_g6ehv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgs4s"]
+size = Vector2(56, 126)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_aw2hk")]
+position = Vector2(145, 20)
+scale = Vector2(-1, 1)
+
+[node name="Groud2" parent="." instance=ExtResource("2_1kli6")]
+z_index = 4
+
+[node name="Groud" parent="." instance=ExtResource("2_1kli6")]
+position = Vector2(363, 0)
+
+[node name="Groud3" parent="." instance=ExtResource("2_1kli6")]
+z_index = 2
+position = Vector2(724, 0)
+
+[node name="Portal" type="Area2D" parent="."]
+position = Vector2(939, 289)
+rotation = 3.14159
+scale = Vector2(1, -1)
+priority = -1
+script = ExtResource("4_606iy")
+next_scene = "res://Prefab/groud.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="Portal"]
+position = Vector2(0.613455, 6.81794)
+scale = Vector2(6.32568, 35.4768)
+texture = ExtResource("5_g6ehv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
+position = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_rgs4s")
