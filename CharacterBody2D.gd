@@ -22,6 +22,8 @@ var dash_timer: Timer
 var skill_timers = {}
 var original_scale: Vector2
 var current_time: int = 0
+var is_dead :bool = false
+var play_death_animation = false
 
 
 func _ready():
@@ -34,6 +36,7 @@ func _ready():
 	
 	# 保存原始缩放比例
 	original_scale = animatedsprite2d.scale
+	animatedsprite2d.connect("animation_finished", Callable(self, "_on_AnimatedSprite2D_animation_finished"))
 	
 	# 初始化技能计时器
 	for skill in ["left_click", "right_click", "stretch_x", "stretch_y"]:
@@ -45,6 +48,13 @@ func _ready():
 		skill_timers[skill] = timer
 
 func _physics_process(_delta: float):
+	if is_dead :
+		if play_death_animation:
+			animatedsprite2d.play("Dead")
+			camera.start_shake(0.7,5)
+			play_death_animation = false
+		return
+	
 	current_time = Time.get_ticks_msec()
 	if is_dashing:
 		# 如果正在冲刺，忽略其他输入，保持冲刺方向和速度
@@ -69,6 +79,8 @@ func _physics_process(_delta: float):
 	#伤害信号
 	healthChange.emit()
 	
+	if currenthealth <= 0 :
+		die()
 
 
 func handle_input():
@@ -123,13 +135,18 @@ func handle_input():
 			if not skill_timers["left_click"].is_stopped():
 				return
 			activate_skill("left_click", Vector2(1.2, 1.2))  # 鼠标左键
-			camera.start_shake(0.3,5)
+			animatedsprite2d.play("Attack1")
+			camera.start_shake(0.1,2)
 		else:
 			return
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		if not skill_timers["right_click"].is_stopped():
 			return
-		activate_skill("right_click", Vector2(0.8, 0.8))  # 鼠标右键
+		activate_skill("right_click", Vector2(0.8, 0.8)) 
+		animatedsprite2d.play("Attack2") # 鼠标右键
+		camera.start_shake(0.3,5)
+		
+		
 	if Input.is_key_pressed(KEY_F):
 		if not skill_timers["stretch_x"].is_stopped():
 			return
@@ -156,6 +173,24 @@ func start_double_jump():
 
 func jump_state():
 	pass
+
+func  die():
+	if not is_dead :
+		is_dead = true
+		play_death_animation = true
+		velocity = Vector2.ZERO
+
+
+func respawn():
+	is_dead = false
+	play_death_animation = false
+	currenthealth = maxhealth
+	position = Vector2(100,100)
+	animatedsprite2d.play("Idle")
+	
+func _on_AnimatedSprite2D_animation_finished():
+	if animatedsprite2d.animation == "Dead":
+		respawn()  # 如果死亡动画播放完毕，则调用 respawn 函数来重置角色
 
 func apply_gravity():
 	if not is_on_floor():
