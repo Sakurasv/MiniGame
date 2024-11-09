@@ -1,22 +1,122 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba76qkhjtwmb0"]
+[gd_scene load_steps=19 format=3 uid="uid://ba76qkhjtwmb0"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1mg1k"]
-[ext_resource type="Texture2D" uid="uid://cdftxm3lckhnm" path="res://Art/zombie.png" id="2_hsnbs"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_n43af"]
+[ext_resource type="Texture2D" uid="uid://bimqh0bteonpq" path="res://Art/Player-Idle-Sheet.png" id="4_enlgl"]
+[ext_resource type="Texture2D" uid="uid://cbg54ye8mcs0t" path="res://Art/Player-Run-Sheet.png" id="4_wmerr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep426"]
-size = Vector2(128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l387f"]
+atlas = ExtResource("4_enlgl")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq17y"]
+atlas = ExtResource("4_enlgl")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukkxl"]
+atlas = ExtResource("4_enlgl")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc0ob"]
+atlas = ExtResource("4_enlgl")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upr7h"]
+atlas = ExtResource("4_wmerr")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwcmi"]
+atlas = ExtResource("4_wmerr")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b113d"]
+atlas = ExtResource("4_wmerr")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7iaf"]
+atlas = ExtResource("4_wmerr")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8mw5"]
+atlas = ExtResource("4_wmerr")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yumtd"]
+atlas = ExtResource("4_wmerr")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jsiw"]
+atlas = ExtResource("4_wmerr")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyscm"]
+atlas = ExtResource("4_wmerr")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sxyt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l387f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq17y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukkxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc0ob")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upr7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwcmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b113d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7iaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8mw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yumtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jsiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyscm")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agsba"]
+radius = 8.91089
+height = 47.5248
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_1mg1k")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(64, 64)
-texture = ExtResource("2_hsnbs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(64, 64)
-shape = SubResource("RectangleShape2D_ep426")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_n43af")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sxyt5")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.01, 1.01)
+shape = SubResource("CapsuleShape2D_agsba")
