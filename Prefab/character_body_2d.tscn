@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ba76qkhjtwmb0"]
+[gd_scene load_steps=43 format=3 uid="uid://ba76qkhjtwmb0"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1mg1k"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_n43af"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://ejt168vra13q" path="res://Art/Player-Dead-Sheet.png" id="3_ya5a5"]
 [ext_resource type="Texture2D" uid="uid://bimqh0bteonpq" path="res://Art/Player-Idle-Sheet.png" id="4_enlgl"]
 [ext_resource type="Texture2D" uid="uid://cbg54ye8mcs0t" path="res://Art/Player-Run-Sheet.png" id="4_wmerr"]
+[ext_resource type="Texture2D" uid="uid://b74ysu513d4cf" path="res://Art/life_bar_bg.png" id="7_kq2q5"]
+[ext_resource type="Texture2D" uid="uid://cvxpxm74on603" path="res://Art/life_bar.png" id="8_cauho"]
+[ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="9_vyxrt"]
+[ext_resource type="Texture2D" uid="uid://15mwplxj87dd" path="res://Art/SideFrame.png" id="10_sfxbm"]
+[ext_resource type="Script" path="res://Scripts/SideFrame.gd" id="11_h86uq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ylt2"]
 atlas = ExtResource("3_v6of8")
@@ -235,10 +240,15 @@ animations = [{
 radius = 8.91089
 height = 47.5248
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ty7o3"]
+radius = 9.0
+height = 48.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_1mg1k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.27, 1.27)
 script = ExtResource("3_n43af")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -247,5 +257,34 @@ animation = &"Run"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(1.01, 1.01)
 shape = SubResource("CapsuleShape2D_agsba")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_ty7o3")
+debug_color = Color(0.921569, 0.2, 0.498039, 0.419608)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("player")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -39.0
+offset_right = 9.0
+offset_bottom = -35.0
+grow_vertical = 0
+texture_under = ExtResource("7_kq2q5")
+texture_progress = ExtResource("8_cauho")
+script = ExtResource("9_vyxrt")
+player = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -0.999994)
+scale = Vector2(0.50768, 0.50768)
+texture = ExtResource("10_sfxbm")
+script = ExtResource("11_h86uq")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var dash_speed: float = 600.0
 @export var dash_duration: float = 0.2  # 冲刺持续时间，单位：秒
-@export var maxhealth :int= 300
+@export var maxhealth :int= 400
 @onready var currenthealth :int = maxhealth
 @onready var animatedsprite2d = $AnimatedSprite2D
 
@@ -75,9 +75,9 @@ func _physics_process(_delta: float):
 	move_and_slide()
 	
 	#造成伤害
-	currenthealth -= 1
+	#currenthealth -= 1
 	#伤害信号
-	healthChange.emit()
+	#healthChange.emit()
 	
 	if currenthealth <= 0 :
 		die()
@@ -225,3 +225,11 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		current_time = Time.get_ticks_msec()
 		print("Mouse button pressed at: " + str(current_time))
+
+
+func _on_hurt_box_area_entered(area):
+	print("bullet hurt")
+	currenthealth -= 100
+	healthChange.emit()
+	camera.start_shake(0.2,3)
+

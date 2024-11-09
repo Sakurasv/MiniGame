@@ -1,7 +1,8 @@
-Sprite2D
-Button
 CollisionShape2D
 Area2D
+Timer
+Sprite2D
+Button
 StaticBody2D
 Node2D
 Marker2D
@@ -11,4 +12,3 @@ CanvasLayer
 AudioStreamPlayer
 AudioStreamPlayer2D
 Camera2D
-CharacterBody2D

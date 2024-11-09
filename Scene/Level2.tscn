@@ -27,7 +27,7 @@ position = Vector2(724, 0)
 
 [node name="Peashooter" parent="." instance=ExtResource("3_i0loq")]
 z_index = 6
-position = Vector2(642, 310)
+position = Vector2(664, 357)
 scale = Vector2(1.5, 1.5)
 
 [node name="Portal" type="Area2D" parent="."]

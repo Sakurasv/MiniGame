@@ -1,13 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdo5f61l702yx"]
+[gd_scene load_steps=8 format=3 uid="uid://cdo5f61l702yx"]
 
 [ext_resource type="PackedScene" uid="uid://ba76qkhjtwmb0" path="res://Prefab/character_body_2d.tscn" id="1_mwm5m"]
 [ext_resource type="Texture2D" uid="uid://dkx0b6sbbw1u4" path="res://icon.svg" id="1_yuv6h"]
 [ext_resource type="AudioStream" uid="uid://bw6u6xjuyau4c" path="res://addin/beat/lumine.mp3" id="4_ptrg1"]
-[ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="5_32hmi"]
-[ext_resource type="Texture2D" uid="uid://b74ysu513d4cf" path="res://Art/life_bar_bg.png" id="6_siote"]
-[ext_resource type="Texture2D" uid="uid://cvxpxm74on603" path="res://Art/life_bar.png" id="7_m5ejq"]
-[ext_resource type="Texture2D" uid="uid://15mwplxj87dd" path="res://Art/SideFrame.png" id="8_yur36"]
-[ext_resource type="Script" path="res://Scripts/SideFrame.gd" id="9_i5j70"]
+[ext_resource type="PackedScene" uid="uid://bh4tpbdjhpjf1" path="res://Prefab/SlideFrame.tscn" id="4_sd8k1"]
 [ext_resource type="PackedScene" uid="uid://c8gs41n2ctmac" path="res://Prefab/peashooter.tscn" id="10_sbfop"]
 [ext_resource type="PackedScene" uid="uid://bj7nn5lefsb1e" path="res://Prefab/bullet.tscn" id="11_rhj08"]
 
@@ -39,28 +35,7 @@ position = Vector2(587, 220)
 scale = Vector2(9.66406, 4.09375)
 texture = ExtResource("1_yuv6h")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 29.0
-offset_top = -136.0
-offset_right = 47.0
-offset_bottom = -132.0
-grow_vertical = 0
-texture_under = ExtResource("6_siote")
-texture_progress = ExtResource("7_m5ejq")
-tint_under = Color(0.0705882, 1, 0.721569, 1)
-tint_progress = Color(1, 0.37143, 0.509107, 1)
-script = ExtResource("5_32hmi")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(575, 322)
-scale = Vector2(0.668123, 0.668123)
-texture = ExtResource("8_yur36")
-script = ExtResource("9_i5j70")
+[node name="CanvasLayer" parent="." instance=ExtResource("4_sd8k1")]
 
 [node name="Peashooter" parent="." instance=ExtResource("10_sbfop")]
 
