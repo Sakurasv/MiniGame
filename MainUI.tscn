@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwyaovlhbb23c"]
+[gd_scene load_steps=2 format=3 uid="uid://bwyaovlhbb23c"]
 
 [ext_resource type="Texture2D" uid="uid://15mwplxj87dd" path="res://Art/SideFrame.png" id="1_031mb"]
-[ext_resource type="Script" path="res://Scripts/SideFrame.gd" id="2_hnlib"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,4 +14,3 @@ grow_vertical = 2
 position = Vector2(577, 323)
 scale = Vector2(0.595493, 0.630778)
 texture = ExtResource("1_031mb")
-script = ExtResource("2_hnlib")

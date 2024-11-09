@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731127991
-CharacterBody2D.gd::GDScript::-1::1731127800::0::1::::<>CharacterBody2D<>::
+::res://::1731130445
+CharacterBody2D.gd::GDScript::-1::1731130414::0::1::::<>CharacterBody2D<>::
 icon.svg::CompressedTexture2D::7910152542494069517::1729781095::1729781100::1::::<><>::
-MainUI.tscn::PackedScene::3980146431244574046::1731127991::0::1::::<><>::uid://15mwplxj87dd::::res://Art/SideFrame.png<>res://Scripts/SideFrame.gd
-node_2d.tscn::PackedScene::5014141294541990875::1731127991::0::1::::<><>::res://CharacterBody2D.gd<>uid://dkx0b6sbbw1u4::::res://icon.svg<>res://Scripts/CameraController.gd<>uid://bw6u6xjuyau4c::::res://addin/beat/lumine.mp3<>res://Scripts/ProgressBar.gd
+MainUI.tscn::PackedScene::3980146431244574046::1731130445::0::1::::<><>::uid://15mwplxj87dd::::res://Art/SideFrame.png<>res://Scripts/SideFrame.gd
+node_2d.tscn::PackedScene::5014141294541990875::1731130445::0::1::::<><>::res://CharacterBody2D.gd<>uid://dkx0b6sbbw1u4::::res://icon.svg<>res://Scripts/CameraController.gd<>uid://bw6u6xjuyau4c::::res://addin/beat/lumine.mp3<>res://Scripts/ProgressBar.gd<>uid://b74ysu513d4cf::::res://Art/life_bar_bg.png<>uid://cvxpxm74on603::::res://Art/life_bar.png
 ::res://addin/::1731119751
 ::res://addin/beat/::1731119751
 key_records.csv::Translation::3646661518577529319::1730812661::1730816225::1::::<><>::
@@ -16,8 +16,8 @@ SideFrame.png::CompressedTexture2D::1887609964491217185::1730987847::1730987853:
 ::res://CSV/::1731119751
 key_records.csv::Translation::8147449677662880338::1730812661::1730816963::1::::<><>::
 key_records.Key.translation::OptimizedTranslation::3708623573945981982::1730816963::0::1::::<><>::
-::res://Scripts/::1731127425
+::res://Scripts/::1731128693
 AutoLoad.gd::GDScript::-1::1730984204::0::1::::<>Node<>::
 CameraController.gd::GDScript::-1::1730984964::0::1::::<>Camera2D<>::
-ProgressBar.gd::GDScript::-1::1731127425::0::1::::<>ProgressBar<>::
+ProgressBar.gd::GDScript::-1::1731128693::0::1::::<>TextureProgressBar<>::
 SideFrame.gd::GDScript::-1::1730991402::0::1::::<>Sprite2D<>::

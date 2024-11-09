@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdo5f61l702yx"]
+[gd_scene load_steps=12 format=3 uid="uid://cdo5f61l702yx"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4dktf"]
 [ext_resource type="Texture2D" uid="uid://dkx0b6sbbw1u4" path="res://icon.svg" id="1_yuv6h"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="5_32hmi"]
 [ext_resource type="Texture2D" uid="uid://b74ysu513d4cf" path="res://Art/life_bar_bg.png" id="6_siote"]
 [ext_resource type="Texture2D" uid="uid://cvxpxm74on603" path="res://Art/life_bar.png" id="7_m5ejq"]
+[ext_resource type="Texture2D" uid="uid://15mwplxj87dd" path="res://Art/SideFrame.png" id="8_yur36"]
+[ext_resource type="Script" path="res://Scripts/SideFrame.gd" id="9_i5j70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep426"]
 size = Vector2(128, 128)
@@ -68,3 +70,9 @@ tint_under = Color(0.0705882, 1, 0.721569, 1)
 tint_progress = Color(1, 0.37143, 0.509107, 1)
 script = ExtResource("5_32hmi")
 player = NodePath("../../CharacterBody2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(575, 322)
+scale = Vector2(0.668123, 0.668123)
+texture = ExtResource("8_yur36")
+script = ExtResource("9_i5j70")
