@@ -9,6 +9,11 @@ extends CharacterBody2D
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var dash_speed: float = 600.0
 @export var dash_duration: float = 0.2  # 冲刺持续时间，单位：秒
+@export var maxhealth :int= 300
+@onready var currenthealth :int = maxhealth
+
+signal healthChange
+
 
 var can_double_jump: bool = true
 var is_dashing: bool = false
@@ -46,6 +51,11 @@ func _physics_process(_delta: float):
 		handle_input()
 		apply_gravity()
 	move_and_slide()
+	
+	#造成伤害
+	currenthealth -= 1
+	#伤害信号
+	healthChange.emit()
 
 func handle_input():
 	var direction = 0.0
