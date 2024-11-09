@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 
 Counter="*res://Scripts/AutoLoad.gd"
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [input]
 
 ui_select={

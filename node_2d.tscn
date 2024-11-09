@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdo5f61l702yx"]
+[gd_scene load_steps=15 format=3 uid="uid://cdo5f61l702yx"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4dktf"]
 [ext_resource type="Texture2D" uid="uid://dkx0b6sbbw1u4" path="res://icon.svg" id="1_yuv6h"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cvxpxm74on603" path="res://Art/life_bar.png" id="7_m5ejq"]
 [ext_resource type="Texture2D" uid="uid://15mwplxj87dd" path="res://Art/SideFrame.png" id="8_yur36"]
 [ext_resource type="Script" path="res://Scripts/SideFrame.gd" id="9_i5j70"]
+[ext_resource type="Texture2D" uid="uid://rmuwrwc0w07e" path="res://Art/第1帧.png" id="10_spdwe"]
+[ext_resource type="Script" path="res://Scripts/Peashooter.gd" id="10_y5qxt"]
+[ext_resource type="PackedScene" uid="uid://bj7nn5lefsb1e" path="res://Prefab/bullet.tscn" id="11_rhj08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep426"]
 size = Vector2(128, 128)
@@ -76,3 +79,18 @@ position = Vector2(575, 322)
 scale = Vector2(0.668123, 0.668123)
 texture = ExtResource("8_yur36")
 script = ExtResource("9_i5j70")
+
+[node name="Peashooter" type="Node2D" parent="."]
+position = Vector2(550, 247)
+script = ExtResource("10_y5qxt")
+bullet_scene = ExtResource("11_rhj08")
+fire_rate = 0.96
+
+[node name="BulletSpawn" type="Marker2D" parent="Peashooter"]
+position = Vector2(-21, -19)
+
+[node name="Sprite2D" type="Sprite2D" parent="Peashooter"]
+scale = Vector2(-1, 1)
+texture = ExtResource("10_spdwe")
+
+[node name="Bullet" parent="." instance=ExtResource("11_rhj08")]
