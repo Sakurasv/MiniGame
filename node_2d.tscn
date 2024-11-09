@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdo5f61l702yx"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4dktf"]
+[ext_resource type="Texture2D" uid="uid://dkx0b6sbbw1u4" path="res://icon.svg" id="1_yuv6h"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_tvw66"]
+[ext_resource type="AudioStream" uid="uid://bw6u6xjuyau4c" path="res://addin/beat/lumine.mp3" id="4_ptrg1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep426"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tivfa"]
+size = Vector2(955, 72)
+
+[node name="Main" type="Node2D"]
+
+[node name="BackGround" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(592.5, 216)
+scale = Vector2(9.66406, 4.09375)
+texture = ExtResource("1_yuv6h")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_4dktf")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(64, 64)
+texture = ExtResource("1_yuv6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_ep426")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+script = ExtResource("3_tvw66")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(479.5, 320.5)
+scale = Vector2(7.42969, 0.570313)
+texture = ExtResource("1_yuv6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(485, 319)
+shape = SubResource("RectangleShape2D_tivfa")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ptrg1")
+autoplay = true

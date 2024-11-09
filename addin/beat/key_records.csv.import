@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://br7p8nxkv35nf"
+
+[deps]
+
+files=["res://addin/beat/key_records.Key.translation"]
+
+source_file="res://addin/beat/key_records.csv"
+dest_files=["res://addin/beat/key_records.Key.translation"]
+
+[params]
+
+compress=true
+delimiter=0
