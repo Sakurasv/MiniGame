@@ -30,3 +30,5 @@ offset_bottom = 462.283
 focus_neighbor_left = NodePath("../StartButton")
 text = "退出游戏"
 script = ExtResource("2_dwign")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
