@@ -1,11 +1,71 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8gs41n2ctmac"]
+[gd_scene load_steps=20 format=3 uid="uid://c8gs41n2ctmac"]
 
 [ext_resource type="Script" path="res://Scripts/Peashooter.gd" id="1_1d1x4"]
 [ext_resource type="Texture2D" uid="uid://rmuwrwc0w07e" path="res://Art/第1帧.png" id="3_b3efc"]
 [ext_resource type="Script" path="res://Scripts/PeashooterProgressBar.gd" id="3_lyvuu"]
+[ext_resource type="Texture2D" uid="uid://bx3lxmx1rh2c6" path="res://Art/peashooter/1.png" id="4_j24pm"]
+[ext_resource type="Texture2D" uid="uid://cton2isio4bre" path="res://Art/peashooter/2.png" id="5_g187e"]
+[ext_resource type="Texture2D" uid="uid://c3lw7wjr6krd0" path="res://Art/peashooter/3.png" id="6_cgaiu"]
+[ext_resource type="Texture2D" uid="uid://x237safekgo5" path="res://Art/peashooter/4.png" id="7_k7hxv"]
+[ext_resource type="Texture2D" uid="uid://h422x1dqgjgr" path="res://Art/peashooter/5.png" id="8_cvngh"]
+[ext_resource type="Texture2D" uid="uid://xmdar37rdqw4" path="res://Art/peashooter/6.png" id="9_mxsni"]
+[ext_resource type="Texture2D" uid="uid://bdelns4nwfwup" path="res://Art/peashooter/7.png" id="10_hiqg1"]
+[ext_resource type="Texture2D" uid="uid://draf4do6nyort" path="res://Art/peashooter/8.png" id="11_kbutw"]
+[ext_resource type="Texture2D" uid="uid://pgxbcwe7qgmv" path="res://Art/peashooter/9.png" id="12_46lk5"]
+[ext_resource type="Texture2D" uid="uid://bwneewgb7idd7" path="res://Art/peashooter/10.png" id="13_nr5gm"]
+[ext_resource type="Texture2D" uid="uid://b1cqwhptjfwvy" path="res://Art/peashooter/11.png" id="14_qgqno"]
+[ext_resource type="Texture2D" uid="uid://04f70q7xsfe6" path="res://Art/peashooter/12.png" id="15_ccqcq"]
+[ext_resource type="Texture2D" uid="uid://b5dqntq8ypvff" path="res://Art/peashooter/13.png" id="16_lnwt6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cwf8k"]
 height = 32.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_akprm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_j24pm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g187e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cgaiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k7hxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cvngh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mxsni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hiqg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kbutw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_46lk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nr5gm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qgqno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ccqcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lnwt6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgw07"]
 
@@ -14,6 +74,7 @@ position = Vector2(550, 247)
 script = ExtResource("1_1d1x4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-18, -11)
 rotation = -3.14159
 scale = Vector2(0.371579, -0.371579)
@@ -31,10 +92,6 @@ position = Vector2(-17, -14)
 shape = SubResource("CapsuleShape2D_cwf8k")
 debug_color = Color(0.929412, 0.160784, 0.533333, 0.419608)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-17, -14)
-shape = SubResource("CapsuleShape2D_hgw07")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("peashooter")]
@@ -44,6 +101,18 @@ offset_right = 987.0
 offset_bottom = 601.0
 script = ExtResource("3_lyvuu")
 peashooter = NodePath("../..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-18, -12)
+scale = Vector2(-0.43, 0.43)
+sprite_frames = SubResource("SpriteFrames_akprm")
+autoplay = "default"
+frame = 4
+frame_progress = 0.0541621
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17, -14)
+shape = SubResource("CapsuleShape2D_hgw07")
 
 [connection signal="timeout" from="shootSpeedTimer" to="." method="_on_shoot_speed_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

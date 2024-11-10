@@ -12,6 +12,7 @@ signal healthChange  # 信号定义
 @onready var bullet_spawn_point = $BulletSpawn
 @export var maxhealth :int = 400
 @onready var currenthealth :int = maxhealth
+@onready var animated2d := $AnimatedSprite2D
 
 const BULLET = preload("res://Prefab/bullet.tscn")
 var canShoot = true
@@ -25,6 +26,8 @@ func _ready():
 	timer.one_shot = false
 	timer.start()
 	timer.timeout.connect(_on_Timer_timeout)
+	animated2d.play("default")
+	
 
 	emit_signal("healthChange")  # 确保初始值
 
