@@ -33,7 +33,7 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 priority = -1
 script = ExtResource("4_606iy")
-next_scene = "res://Prefab/groud.tscn"
+next_scene = "res://Scene/end_scene.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="Portal"]
 position = Vector2(0.613455, 6.81794)
