@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://df2rwc5d338bd"]
+[gd_scene load_steps=8 format=3 uid="uid://df2rwc5d338bd"]
 
 [ext_resource type="PackedScene" uid="uid://ba76qkhjtwmb0" path="res://Prefab/character_body_2d.tscn" id="1_aw2hk"]
+[ext_resource type="Script" path="res://Scripts/Level3.gd" id="1_jymxu"]
 [ext_resource type="PackedScene" uid="uid://c366fny8jjmex" path="res://Prefab/groud.tscn" id="2_1kli6"]
 [ext_resource type="Script" path="res://Scripts/Portal.gd" id="4_606iy"]
 [ext_resource type="PackedScene" uid="uid://b2xo433eulywu" path="res://Prefab/sad.tscn" id="5_avrlc"]
@@ -10,6 +11,7 @@
 size = Vector2(56, 126)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_jymxu")
 
 [node name="Player" parent="." instance=ExtResource("1_aw2hk")]
 position = Vector2(145, 20)

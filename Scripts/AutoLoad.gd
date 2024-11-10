@@ -3,6 +3,8 @@ extends Node
 var A_Basic_Timer := 0
 var A_timer: Timer
 
+var isMushroomAlive := true
+
 func _ready() -> void:
 	A_timer = Timer.new()
 	A_timer.wait_time = 480 / 1000.0

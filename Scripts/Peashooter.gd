@@ -68,4 +68,5 @@ func _on_hurt_box_area_entered(area):
 		die()
 
 func die():
+	Counter.isMushroomAlive = false
 	queue_free()  # 销毁当前节点，从场景中移除角色
