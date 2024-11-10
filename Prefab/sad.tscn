@@ -1,0 +1,124 @@
+[gd_scene load_steps=19 format=3 uid="uid://b2xo433eulywu"]
+
+[ext_resource type="Script" path="res://Scripts/sad.gd" id="1_e03l6"]
+[ext_resource type="Texture2D" uid="uid://rmuwrwc0w07e" path="res://Art/第1帧.png" id="2_5wrh2"]
+[ext_resource type="Script" path="res://Scripts/PeashooterProgressBar.gd" id="3_ti1r4"]
+[ext_resource type="Texture2D" uid="uid://bgxwxr2fbom38" path="res://Art/忧郁菇/忧郁菇-0.png" id="4_1kcbq"]
+[ext_resource type="Texture2D" uid="uid://btn7slqaigsio" path="res://Art/忧郁菇/忧郁菇-1.png" id="5_ehf82"]
+[ext_resource type="Texture2D" uid="uid://vo8jk15g1po7" path="res://Art/忧郁菇/忧郁菇-2.png" id="6_hw4by"]
+[ext_resource type="Texture2D" uid="uid://dpe4cmbyi0tqd" path="res://Art/忧郁菇/忧郁菇-3.png" id="7_rpflw"]
+[ext_resource type="Texture2D" uid="uid://blbuk4clfg12c" path="res://Art/忧郁菇/忧郁菇-4.png" id="8_5mi87"]
+[ext_resource type="Texture2D" uid="uid://ofncrkcjkrwc" path="res://Art/忧郁菇/忧郁菇-5.png" id="9_1ldos"]
+[ext_resource type="Texture2D" uid="uid://bm02ju0eomp2t" path="res://Art/忧郁菇/忧郁菇-6.png" id="10_c6p0m"]
+[ext_resource type="Texture2D" uid="uid://b6tos7g1601n0" path="res://Art/忧郁菇/忧郁菇-7.png" id="11_opoyu"]
+[ext_resource type="Texture2D" uid="uid://pft705cjdxdb" path="res://Art/忧郁菇/忧郁菇-8.png" id="12_4hd2i"]
+[ext_resource type="Texture2D" uid="uid://o2cr5lue8lgg" path="res://Art/忧郁菇/忧郁菇-9.png" id="13_7ls0d"]
+[ext_resource type="Texture2D" uid="uid://col1kksj58ioc" path="res://Art/忧郁菇/忧郁菇-10.png" id="14_s76tw"]
+[ext_resource type="Texture2D" uid="uid://ckl0olnncbvy0" path="res://Art/忧郁菇/忧郁菇-11.png" id="15_6qw4y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cwf8k"]
+height = 32.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kju5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1kcbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ehf82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hw4by")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rpflw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5mi87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1ldos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c6p0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_opoyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4hd2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7ls0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_s76tw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6qw4y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgw07"]
+
+[node name="Mushroom" type="CharacterBody2D"]
+position = Vector2(550, 247)
+script = ExtResource("1_e03l6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-18, -11)
+rotation = -3.14159
+scale = Vector2(0.371579, -0.371579)
+texture = ExtResource("2_5wrh2")
+
+[node name="BulletSpawn2" type="Marker2D" parent="."]
+position = Vector2(-42, -29)
+
+[node name="BulletSpawn5" type="Marker2D" parent="."]
+position = Vector2(12, -15)
+
+[node name="BulletSpawn4" type="Marker2D" parent="."]
+position = Vector2(4, -33)
+
+[node name="BulletSpawn3" type="Marker2D" parent="."]
+position = Vector2(-18, -47)
+
+[node name="BulletSpawn1" type="Marker2D" parent="."]
+position = Vector2(-45, -15)
+
+[node name="shootSpeedTimer" type="Timer" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-17, -14)
+shape = SubResource("CapsuleShape2D_cwf8k")
+debug_color = Color(0.929412, 0.160784, 0.533333, 0.419608)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("peashooter")]
+offset_left = 149.0
+offset_top = 574.0
+offset_right = 987.0
+offset_bottom = 601.0
+script = ExtResource("3_ti1r4")
+peashooter = NodePath("../..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-17, -16)
+scale = Vector2(-0.43, 0.43)
+sprite_frames = SubResource("SpriteFrames_kju5m")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17, -14)
+shape = SubResource("CapsuleShape2D_hgw07")
+
+[connection signal="timeout" from="shootSpeedTimer" to="." method="_on_shoot_speed_timer_timeout"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

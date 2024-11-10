@@ -1,25 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://cns17drclgi5l"]
+[gd_scene load_steps=5 format=3 uid="uid://bj7nn5lefsb1e"]
 
-[ext_resource type="Script" path="res://Scripts/sadbullet.gd" id="1_0lcdl"]
-[ext_resource type="Texture2D" uid="uid://voncyntr7yv1" path="res://Art/豌豆子弹.png" id="2_lfciy"]
+[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_2ixo7"]
+[ext_resource type="Texture2D" uid="uid://du0r3u0nr066t" path="res://Art/忧郁菇子弹.png" id="2_hql38"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cjp3w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuksv"]
 
-[node name="sadbullet" type="Area2D"]
+[node name="Bullet" type="Area2D"]
 position = Vector2(261, 229)
-script = ExtResource("1_0lcdl")
+script = ExtResource("1_2ixo7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_lfciy")
+position = Vector2(19, 1)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_hql38")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, 0)
 shape = SubResource("CircleShape2D_cjp3w")
 
 [node name="HitBox" type="Area2D" parent="."]
+position = Vector2(4, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(5, 0)
 shape = SubResource("CircleShape2D_tuksv")
 debug_color = Color(0.980392, 0, 0.392157, 0.419608)
 

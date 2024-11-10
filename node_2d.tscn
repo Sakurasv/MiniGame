@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bw6u6xjuyau4c" path="res://addin/beat/lumine.mp3" id="4_ptrg1"]
 [ext_resource type="PackedScene" uid="uid://bh4tpbdjhpjf1" path="res://Prefab/SlideFrame.tscn" id="4_sd8k1"]
 [ext_resource type="PackedScene" uid="uid://c8gs41n2ctmac" path="res://Prefab/peashooter.tscn" id="10_sbfop"]
-[ext_resource type="PackedScene" uid="uid://bj7nn5lefsb1e" path="res://Prefab/bullet.tscn" id="11_rhj08"]
+[ext_resource type="PackedScene" uid="uid://bj7nn5lefsb1e" path="res://Prefab/sadbullet.tscn" id="11_rhj08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tivfa"]
 size = Vector2(955, 72)
