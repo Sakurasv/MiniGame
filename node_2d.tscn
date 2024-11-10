@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ba76qkhjtwmb0" path="res://Prefab/character_body_2d.tscn" id="1_mwm5m"]
 [ext_resource type="Texture2D" uid="uid://dkx0b6sbbw1u4" path="res://icon.svg" id="1_yuv6h"]
 [ext_resource type="AudioStream" uid="uid://bw6u6xjuyau4c" path="res://addin/beat/lumine.mp3" id="4_ptrg1"]
-[ext_resource type="PackedScene" uid="uid://bh4tpbdjhpjf1" path="res://Prefab/SlideFrame.tscn" id="4_sd8k1"]
+[ext_resource type="PackedScene" path="res://Prefab/SlideFrame.tscn" id="4_sd8k1"]
 [ext_resource type="PackedScene" uid="uid://c8gs41n2ctmac" path="res://Prefab/peashooter.tscn" id="10_sbfop"]
 [ext_resource type="PackedScene" uid="uid://bj7nn5lefsb1e" path="res://Prefab/sadbullet.tscn" id="11_rhj08"]
 

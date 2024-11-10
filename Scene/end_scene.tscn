@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmitmgl1gm6vu"]
+[gd_scene load_steps=5 format=3 uid="uid://dy2vy6sevxjfp"]
 
 [ext_resource type="Texture2D" uid="uid://bfc3yrnnfm78u" path="res://Art/note.png" id="1_3pms2"]
+[ext_resource type="Script" path="res://Scripts/end_scene.gd" id="1_l4tpt"]
 [ext_resource type="Script" path="res://Scripts/ExitButton.gd" id="2_dwign"]
 [ext_resource type="AudioStream" uid="uid://c50eyocqy5s8a" path="res://Audio/通关.mp3" id="3_pbwq6"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l4tpt")
 
 [node name="Note" type="Sprite2D" parent="."]
 position = Vector2(563, 303)
