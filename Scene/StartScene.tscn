@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkrs5tckpxat8"]
+[gd_scene load_steps=6 format=3 uid="uid://dkrs5tckpxat8"]
 
 [ext_resource type="Script" path="res://Scripts/StartButton.gd" id="1_j6dml"]
 [ext_resource type="Texture2D" uid="uid://bjaoa3e6bt8ii" path="res://Art/背景图-modified.jpg" id="1_v2yfo"]
 [ext_resource type="Script" path="res://Scripts/ExitButton.gd" id="3_hdblg"]
 [ext_resource type="Texture2D" uid="uid://cbjrnpvp8dc8r" path="res://Art/标题.png" id="4_vudu6"]
+[ext_resource type="AudioStream" uid="uid://cdabw4vqd4x0v" path="res://Audio/bgm (mp3cut.net).wav" id="5_n2x6h"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -56,3 +57,7 @@ z_index = -1
 position = Vector2(861, 414)
 scale = Vector2(2.28512, 2.28512)
 texture = ExtResource("1_v2yfo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n2x6h")
+autoplay = true

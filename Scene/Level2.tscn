@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7wvg5o2ermfj"]
+[gd_scene load_steps=14 format=3 uid="uid://b7wvg5o2ermfj"]
 
 [ext_resource type="Texture2D" uid="uid://bbc6w1y5wa3ve" path="res://Art/Level2/Background.png" id="1_3pl13"]
 [ext_resource type="PackedScene" uid="uid://c366fny8jjmex" path="res://Prefab/groud.tscn" id="1_docrm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c8gs41n2ctmac" path="res://Prefab/peashooter.tscn" id="3_i0loq"]
 [ext_resource type="Script" path="res://Scripts/Portal.gd" id="4_k3xtp"]
 [ext_resource type="Texture2D" uid="uid://cvxpxm74on603" path="res://Art/life_bar.png" id="5_4nalv"]
+[ext_resource type="AudioStream" uid="uid://cdabw4vqd4x0v" path="res://Audio/bgm (mp3cut.net).wav" id="10_7woeh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16lo7"]
 texture = ExtResource("2_y1dyb")
@@ -1854,3 +1855,7 @@ D：向右移动
 F：跟随音乐节奏抓住时机反弹子弹，击败豌豆射手！
 "
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7woeh")
+autoplay = true
