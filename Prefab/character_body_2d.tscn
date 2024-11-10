@@ -248,7 +248,8 @@ height = 48.0
 script = ExtResource("1_1mg1k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.27, 1.27)
+zoom = Vector2(1.74, 1.74)
+position_smoothing_enabled = true
 script = ExtResource("3_n43af")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
