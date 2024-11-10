@@ -31,7 +31,7 @@ func _physics_process(delta):
 	#queue_free()
 
 
-func _on_hit_box_area_entered(area):
+func _on_hit_box_area_entered(_area):
 	print("hit")
 	if Input.is_key_pressed(KEY_F) :
 		direction *= -1

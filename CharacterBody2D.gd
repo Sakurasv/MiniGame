@@ -229,7 +229,8 @@ func _input(event):
 
 func _on_hurt_box_area_entered(area):
 	print("bullet hurt")
-	currenthealth -= 100
-	healthChange.emit()
+	if not  Input.is_key_pressed(KEY_F) :
+		currenthealth -= 100
+		healthChange.emit()
 	camera.start_shake(0.2,3)
 
